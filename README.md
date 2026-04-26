@@ -1,193 +1,67 @@
-# Gui_ASCII
+## Overview
+The project is a C program that renders ASCII sprites using a custom library. It supports Linux, Windows, Wine, and WebAssembly builds.
 
+## Features
+- Render ASCII sprites from images.
+- Supports loading and saving sprite files.
+- Basic rendering functionality with position and color adjustments.
 
-## Project Overview
-
-This project implements specialized functionality related to ascii.
-
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for ascii
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
-
+## Project Structure
 ### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
+- C/C++ Compiler and Debugger (GCC, Clang)
 - Make utility
 - Standard development tools
+- Libraries needed:
+  - X11 for Linux (`libX11-dev`)
+  - GDI32 for Windows
+  - Wine for Wine build
+  - SDL for WebAssembly
 
-### Build Steps
+## Build & Run
+### Build Process
+To build the project, navigate to the project directory and use one of the following make commands:
 
-1. Navigate to project directory:
-```bash
-cd Gui_ASCII
-```
+- **Linux:**
+  ```bash
+  make -f Makefile.linux all
+  ```
+  
+- **Windows:**
+  ```bash
+  make -f Makefile.windows all
+  ```
 
-2. Build the project:
-```bash
-make -f Makefile.(os) all
-```
+- **Wine (Cross-compiling for Windows):**
+  ```bash
+  make -f Makefile.wine all
+  ```
 
-3. For clean rebuild:
-```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
-```
+- **WebAssembly (Emscripten):**
+  ```bash
+  make -f Makefile.web all
+  ```
 
-4. If there are ./bin and ./libs directories, build libs with:
-```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
-```
+### Execution
+After building, you can run the executable using:
 
-### Build Options
-```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
-```
+- **Linux:**
+  ```bash
+  make -f Makefile.linux exe
+  ```
 
-## Running the Project
+- **Windows:**
+  ```bash
+  make -f Makefile.windows exe
+  ```
 
-Execute the compiled binary:
+- **Wine (Cross-compiling for Windows):**
+  ```bash
+  make -f Makefile.wine exe
+  ```
 
-```bash
-./build/Main(.exe)
-```
+- **WebAssembly (Emscripten):**
+  ```bash
+  make -f Makefile.web exe
+  ```
 
-Or using make:
-```bash
-make -f Makefile.(os) exe
-```
-
-## Project Organization
-
-```
-Gui_ASCII/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
-```
-
-## Technical Details
-
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
-
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
-
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
-
-## Development Notes
-
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
-
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+These commands will compile the source code, link it with necessary libraries, and produce an executable or HTML file depending on the target platform.
